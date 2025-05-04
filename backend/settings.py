@@ -31,7 +31,7 @@ DEBUG = False
 CSRF_TRUSTED_ORIGINS = ['https://budget-tracker-backend-lh7z.onrender.com']
 CSRF_COOKIE_SECURE = True  # Enforces secure cookies in production (HTTPS)
 
-ALLOWED_HOSTS = ['https://budget-tracker-backend-lh7z.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://budget-tracker-backend-lh7z.onrender.com', 'localhost', '127.0.0.1', '*']
 
 
 # Application definition
