@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(yk@uxur@*80(lsgzb*tebov!l68y7w825t1_6zv13ac_sq6(l'
+# SECRET_KEY = 'django-insecure-(yk@uxur@*80(lsgzb*tebov!l68y7w825t1_6zv13ac_sq6(l'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-(yk@uxur@*80(lsgzb*tebov!l68y7w825t1_6zv13ac_sq6(l')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://budget-tracker-backend-lh7z.onrender.com/', 'localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://budget-tracker-backend-lh7z.onrender.com']
+CSRF_COOKIE_SECURE = True  # Enforces secure cookies in production (HTTPS)
+
+ALLOWED_HOSTS = ['https://budget-tracker-backend-lh7z.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
